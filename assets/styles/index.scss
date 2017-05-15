@@ -5,11 +5,4 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'overwrite-responsive';
 @import 'icons';
 @import 'navbar';
-
-// we'll want to separate concerns and get sassy, but for now
-// just putting basic css here.
-
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
-}
+@import 'side-drawer';

@@ -19,19 +19,26 @@
         </div>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-user"></span></a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+          <li><a href="#"><span id="open-shopping-cart" class="glyphicon glyphicon-shopping-cart"></span></a></li>
         </ul>
       </div>
     </nav>
 
-    <div class="container-fluid">
-
-      <div class="starter-template">
-        <h1>Team Project Client</h1>
-        <p class="lead">This is a basic boostrap template that we can build on.</p>
+    <!-- This is the side-drawer user as the 'shopping cart' -->
+    <div id="mySidenav" class="sidenav">
+      <div class="cart-header-wrapper">
+        <span class = "cart-header">Shopping Cart</span>
+        <a id="close-shopping-cart" class="closebtn">X</a>
       </div>
+      <a href="#">Product 1</a>
+      <a href="#">Product 2</a>
+      <a href="#">Product 3</a>
+      <a href="#">Product 4</a>
+    </div>
 
-    </div><!-- /.container -->
+    <div class="container-fluid">
+      <!-- buildout views here -->
+    </div>
 
     <!--we shouldn't need the below scripts.  Browser template takes care of loading jQuery, boostrap js, etc.-->
     <!-- Bootstrap core JavaScript

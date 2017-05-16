@@ -1,13 +1,8 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-// we'll want to separate concerns and get sassy, but for now
-// just putting basic css here.
-
-body {
-  padding-top: 50px;
-}
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
-}
+@import 'colors';
+@import 'overwrite-responsive';
+@import 'icons';
+@import 'navbar';
+@import 'side-drawer';

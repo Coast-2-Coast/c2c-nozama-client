@@ -1,0 +1,13 @@
+﻿name,price,inventory,image
+apple,0.5,90,/images/apple.png
+orange,1,85,/images/orange.png
+banana,0.5,100,/images/banana.png
+nectarine,1,50,/images/nectarine.png
+kiwi,2,25,/images/kiwi.png
+dragonfruit,2.5,15,/images/dragonfruit.jpg
+prickly pear,1,70,/images/prickly_pear.png
+durian,2,100,/images/durian.jpg
+peach,0.5,45,/images/peach.png
+pineapple,2,20,/images/pineapple.jpeg
+watermelon,1.5,35,/images/watermelon.jpg
+tangelo,1,10,/images/tangelo.jpg

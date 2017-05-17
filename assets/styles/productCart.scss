@@ -1,0 +1,40 @@
+.productWrapper {
+  height: 250px;
+  width: 200px;
+  padding: 25px;
+  float: left;
+  margin: 45px;
+}
+
+.productCartImage{
+
+}
+
+.cartImage {
+  width: 100px;
+  height: 100px;
+}
+
+.productCartName{
+  font-size: 20px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  width: 200px;
+  color: $white;
+
+}
+.productCartPrice {
+  font-size: 20px;
+  height: 25px;
+  width: 200px;
+  text-align: center;
+  line-height: 25px;
+  color: $white;
+
+}
+
+.removeBtn {
+  text-align: center;
+  width: 200px;
+}

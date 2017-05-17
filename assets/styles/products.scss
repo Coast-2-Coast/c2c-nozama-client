@@ -1,0 +1,36 @@
+.productView {
+  width:900px;
+  margin: 0 auto;
+  display: block;
+}
+.productWrapper {
+  height: 300px;
+  width: 200px;
+  float: left;
+}
+
+.productImage{
+
+}
+
+.productName{
+  font-size: 20px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  width: 200px;
+
+}
+.productPrice {
+  font-size: 20px;
+  height: 25px;
+  width: 200px;
+  text-align: center;
+  line-height: 25px;
+
+}
+
+.addBtn {
+  text-align: center;
+  width: 200px;
+}

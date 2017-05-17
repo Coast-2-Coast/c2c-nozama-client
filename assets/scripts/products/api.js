@@ -11,6 +11,16 @@ const indexProducts = function () {
   })
 }
 
+const showProduct = function (data) {
+  console.log('show product ran')
+
+  return $.ajax({
+    url: config.apiOrigin + '/products/' + data,
+    method: 'GET'
+  })
+}
+
 module.exports = {
-  indexProducts
+  indexProducts,
+  showProduct
 }

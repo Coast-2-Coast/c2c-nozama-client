@@ -1,36 +1,40 @@
-.productView {
-  width:900px;
-  margin: 0 auto;
-  display: block;
-}
 .productWrapper {
-  height: 300px;
+  height: 250px;
   width: 200px;
+  padding: 25px;
   float: left;
+  margin: 45px;
 }
 
-.productImage{
+.productCartImage{
 
 }
 
-.productName{
+.cartImage {
+  width: 100px;
+  height: 100px;
+}
+
+.productCartName{
   font-size: 20px;
   height: 25px;
   text-align: center;
   line-height: 25px;
   width: 200px;
+  color: $white;
 
 }
-.productPrice {
+.productCartPrice {
   font-size: 20px;
   height: 25px;
   width: 200px;
   text-align: center;
   line-height: 25px;
+  color: $white;
 
 }
 
-.addBtn {
+.removeBtn {
   text-align: center;
   width: 200px;
 }

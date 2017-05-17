@@ -17,7 +17,23 @@ const getAllProductsFailure = (error) => {
   console.error(error)
 }
 
+const getOneProductSuccess = function (ajaxResponse) {
+  console.log('(products/ui.js) getOneProductSuccess ran!  Data is :', ajaxResponse)
+
+  const product = ajaxResponse
+
+  const displayOneProduct = require('../templates/cart-listing.handlebars')
+  $('#cartHandlebar').prepend(displayOneProduct(product))
+}
+
+const getOneProductFailure = (error) => {
+  console.log('(products/ui.js) getOneProductSuccess  Error is :', error)
+  console.error(error)
+}
+
 module.exports = {
   getAllProductsSuccess,
-  getAllProductsFailure
+  getAllProductsFailure,
+  getOneProductSuccess,
+  getOneProductFailure
 }

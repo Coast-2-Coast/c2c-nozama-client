@@ -3,6 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const productEvents = require('./products/events.js')
+const orderEvents = require('./orders/events.js')
 const appEvents = require('./app/events.js')
 const authEvents = require('./auth/events.js')
 
@@ -12,6 +13,7 @@ $(() => {
   // View options are 'header-view' 'drawer-view' 'sign-in-view' 'sign-up-view' 'change-password-view'
   // console.log('Page loaded')
   productEvents.addProductHandlers()
+  orderEvents.addOrderHandlers()
   appEvents.addHandlers()
   authEvents.addHandlers()
 })

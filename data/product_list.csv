@@ -1,0 +1,12 @@
+﻿sku,name,price,inventory,image1,apple,0.5,90,/images/apple.png
+2,orange,1,85,/images/orange.png
+3,banana,0.5,100,/images/banana.png
+4,nectarine,1,50,/images/nectarine.png
+5,kiwi,2,25,/images/kiwi.png
+6,dragonfruit,2.5,15,/images/dragonfruit.jpg
+7,prickly pear,1,70,/images/prickly_pear.png
+8,durian,2,100,/images/durian.jpg
+9,peach,0.5,45,/images/peach.png
+10,pineapple,2,20,/images/pineapple.jpeg
+11,watermelon,1.5,35,/images/watermelon.jpg
+12,tangelo,1,10,/images/tangelo.jpg

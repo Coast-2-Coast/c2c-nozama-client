@@ -27,6 +27,12 @@ const signInSuccess = (ajaxResponse) => {
   store.user = ajaxResponse.user
   console.log('ui.js: signInSuccess - store is: ', store)
 
+  const products = store.products
+
+  $('#products').html('')
+  const displayAllProducts = require('../templates/product-listing.handlebars')
+  $('#products').prepend(displayAllProducts(products))
+
   // Clear modal body text in SIGN IN modal
   $('#sign-in').trigger('reset')
 }

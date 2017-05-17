@@ -4,7 +4,6 @@ const productApi = require('./api')
 const productUi = require('./ui')
 
 const onGetAllProducts = function () {
-  event.preventDefault()
   console.log('(products/events.js) onGetAllProducts ran!')
 
   productApi.indexProducts()
@@ -14,6 +13,11 @@ const onGetAllProducts = function () {
 
 const addProductHandlers = () => {
   $(document).ready(onGetAllProducts)
+  // listen for click events on the 'add to cart' button for each product
+  // use button id or class?
+  $(document).on('click', '.addToCartBtn', function () {
+    console.log('add to cart btn clicked.')
+  })
 }
 
 module.exports = {

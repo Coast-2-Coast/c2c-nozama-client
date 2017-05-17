@@ -1,12 +1,12 @@
 'use strict'
 
-const app = require('../app.js')
+const config = require('../config')
 
 const indexProducts = function () {
   console.log('products/api.js (indexProducts) Ran!')
 
   return $.ajax({
-    url: app.host + '/products/',
+    url: config.apiOrigin + '/products/',
     method: 'GET'
   })
 }

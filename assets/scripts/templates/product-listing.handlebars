@@ -1,0 +1,17 @@
+{{#each products as |product|}}
+
+  <div class="productWrapper" data-id="{{product.id}}">
+    <div class="productImage">
+      <img src={{product.image}}>
+    </div>
+    <div class="productName">
+      Name: {{product.name}}
+    </div>
+    <div class="productPrice">
+      Price: ${{product.price}}
+    </div>
+    <div class="addBtn">
+      <button class="addToCartBtn btn btn-primary" id="addProductBtn" data-id="{{product.id}}">Add to cart</button>
+    </div>
+  </div>
+{{/each}}

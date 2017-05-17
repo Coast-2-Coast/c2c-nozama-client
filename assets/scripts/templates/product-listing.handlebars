@@ -1,14 +1,17 @@
 {{#each products as |product|}}
 
-  <div class="productInfo" data-id="{{product.id}}">
-    <img src= {{product.image}}>
+  <div class="productWrapper" data-id="{{product.id}}">
+    <div class="productImage">
+      <img src={{product.image}}>
+    </div>
     <div class="productName">
       Name: {{product.name}}
     </div>
     <div class="productPrice">
-      Price: {{product.price}}
+      Price: ${{product.price}}
     </div>
-
-    <button class="btn btn-primary" id="addProductBtn" data-id="{{product.id}}">Add to cart</button>
+    <div class="addBtn">
+      <button class="addToCartBtn btn btn-primary" id="addProductBtn" data-id="{{product.id}}">Add to cart</button>
+    </div>
   </div>
 {{/each}}

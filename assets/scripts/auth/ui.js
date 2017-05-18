@@ -2,6 +2,8 @@
 
 const store = require('../store')
 
+const productEvents = require('../products/events.js')
+
 // const errorTextUponSignUpFailure = 'User has already signed up.  Please sign in.'
 // const errorTextUponIncorrectPasswordFailure = 'Password is incorrect.  Please type in correct password.'
 
@@ -77,6 +79,10 @@ const signOutSuccess = () => {
   // Clear user
   store.user = null
   console.log('store is: ', store)
+
+  // On sign out, show all products without the `Add to Cart` button for each
+  //  product.
+  productEvents.onGetAllProducts()
 }
 
 const signOutFailure = (error) => {

@@ -38,5 +38,6 @@ const addProductHandlers = () => {
 }
 
 module.exports = {
-  addProductHandlers
+  addProductHandlers,
+  onGetAllProducts
 }

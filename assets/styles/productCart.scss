@@ -1,9 +1,7 @@
-.productWrapper {
-  height: 250px;
-  width: 200px;
-  padding: 25px;
+.cartProductWrapper {
+  height: 100px;
+  width: 300px;
   float: left;
-  margin: 45px;
 }
 
 .productCartImage{
@@ -13,25 +11,27 @@
 .cartImage {
   width: 100px;
   height: 100px;
+  float: left;
 }
 
 .productCartName{
+  padding-left: 15px;
+  padding-top: 20px;
+  float: left;
   font-size: 20px;
-  height: 25px;
-  text-align: center;
-  line-height: 25px;
+  height: 50px;
   width: 200px;
   color: $white;
-
+  margin: 0;
 }
 .productCartPrice {
+  padding-left: 15px;
+  float: left;
   font-size: 20px;
-  height: 25px;
+  height: 50px;
   width: 200px;
-  text-align: center;
-  line-height: 25px;
   color: $white;
-
+  margin: 0;
 }
 
 .removeBtn {

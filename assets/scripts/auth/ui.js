@@ -21,6 +21,7 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (ajaxResponse) => {
+  store.cart = { products: [] }
   console.log('(auth/ui.js) signInSuccess ran!  Data is :', ajaxResponse)
 
   // Store user object

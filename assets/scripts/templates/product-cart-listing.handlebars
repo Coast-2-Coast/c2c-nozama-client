@@ -1,0 +1,14 @@
+{{#each products as |product|}}
+
+  <div class="cartProductWrapper" data-id="{{product.id}}">
+
+      <img src={{product.image}} class="cartImage">
+
+    <div class="productCartName">
+      Name: {{product.name}}
+    </div>
+    <div class="productCartPrice">
+      Price: ${{product.price}}
+    </div>
+  </div>
+{{/each}}

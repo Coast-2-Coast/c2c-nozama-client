@@ -3,8 +3,9 @@ const getFormFields = require('../../../lib/get-form-fields')
 const orderApi = require('./api')
 const orderUi = require('./ui')
 
-const onCreateOrder = function (event) {
-  event.preventDefault()
+const onCreateOrder = function () {
+  // no longer passing an event
+  // event.preventDefault()
 
   console.log('(order/events.js) onCreateOrder ran!')
 
@@ -59,7 +60,7 @@ const addOrderHandlers = () => {
 
   // Listen for click event on the 'Create Order' button in the cart
   // use button id or class?
-  $(document).on('click', '#checkoutBtn', onCreateOrder)
+  // $(document).on('click', '#checkoutBtn', onCreateOrder)
 
   // **
   // ** TBD *** Need to fix trigger on onCreateOrder click event
@@ -85,5 +86,6 @@ const addOrderHandlers = () => {
 }
 
 module.exports = {
-  addOrderHandlers
+  addOrderHandlers,
+  onCreateOrder
 }

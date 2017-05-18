@@ -31,9 +31,10 @@ const onPageLoad = function () {
       total = total + price
     }
     handler.open({
-      name: 'Demo Site',
-      description: '2 widgets',
-      amount: total * 100
+      name: 'Nozama',
+      description: 'Enter payment information',
+      amount: total * 100,
+      allowRememberMe: false
     })
     e.preventDefault()
   })

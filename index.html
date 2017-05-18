@@ -40,17 +40,35 @@
       <div id="cartHandlebar"></div>
 
       <!-- stripe payment form -->
-      <div id="stripePmtForm">
-        <button type="button" id="checkoutBtn" class="btn btn-primary">Checkout</button>
-        <script
-          src="https://checkout.stripe.com/checkout.js"
-          data-key="pk_test_1uSrps2fqlCACMqKQyrfBwbr"
-          data-amount="2000"
-          data-name="Nozama"
-          data-description="Enter payment information"
-          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-          data-locale="auto">
-        </script>
+      <script src="https://checkout.stripe.com/checkout.js"></script>
+
+      <!-- <button id="checkoutBtn">Checkout</button> -->
+      <button type="button" class="btn btn-primary" id="checkoutBtn">Checkout</button>
+      <script>
+
+      </script>
+
+
+
+
+
+
+
+
+
+      <!-- <div id="stripePmtForm">
+        <form id="stripeCheckout" onSubmit="">
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_1uSrps2fqlCACMqKQyrfBwbr"
+            data-amount="2000"
+            data-name="Nozama"
+            data-description="Enter payment information"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto">
+          </script>
+      </form>
+      </div> -->
       </div>
       </div>
     </div>
@@ -146,7 +164,7 @@
 
 
     </div>
-
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <!--we shouldn't need the below scripts.  Browser template takes care of loading jQuery, boostrap js, etc.-->
     <!-- Bootstrap core JavaScript
     ================================================== -->

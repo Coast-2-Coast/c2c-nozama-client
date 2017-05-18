@@ -6,6 +6,7 @@ const productEvents = require('./products/events.js')
 const orderEvents = require('./orders/events.js')
 const appEvents = require('./app/events.js')
 const authEvents = require('./auth/events.js')
+const stripeEvents = require('./stripe/stripe.js')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -16,6 +17,7 @@ $(() => {
   orderEvents.addOrderHandlers()
   appEvents.addHandlers()
   authEvents.addHandlers()
+  stripeEvents.onPageLoad()
 })
 
 // use require with a reference to bundle the file and use it in this file

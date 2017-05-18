@@ -3,6 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
+// *** NEED to pass data as an argument, for now we are hard coding data below
 const createOrder = () => {
   // console.log('order/api.js (createOrder) - data is ', data)
   const data = {
@@ -29,6 +30,49 @@ const createOrder = () => {
   })
 }
 
+const indexOrders = () => {
+  console.log('orders/api.js (indexOrders)')
+
+  // store.user is stored in scripts/auth/ui.js -> signInSuccess
+  return $.ajax({
+    url: config.apiOrigin + '/orders/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateOrder = (id, data) => {
+  console.log('orders/api.js (updateOrder) - ID is: ', id)
+  console.log('orders/api.js (updateOrder) - Data is: ', data)
+
+  // store.user is stored in scripts/auth/ui.js -> signInSuccess
+  return $.ajax({
+    url: config.apiOrigin + '/orders/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const deleteOrder = () => {
+  console.log('orders/api.js (deleteOrder')
+
+  // store.user is stored in scripts/auth/ui.js -> signInSuccess
+  return $.ajax({
+    url: config.apiOrigin + '/orders/',
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
-  createOrder
+  createOrder,
+  indexOrders,
+  updateOrder,
+  deleteOrder
 }

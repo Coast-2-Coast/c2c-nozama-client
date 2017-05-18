@@ -11,12 +11,10 @@ const onCreateOrder = function (event) {
   // Need to get FILLED IN order object so that it can be passed to orderApi
   //  that will do a CREATE (POST) of that order to the database
 
-  console.log('(order/events.js) onCreateOrder - Order is: ', order)
-
   // const orderId = $(this).data('id')
   // console.log('orderId is:', orderId)
 
-  orderApi.createOrder(order)
+  orderApi.createOrder()
     .then(orderUi.createOrderSuccess)
     .catch(orderUi.createOrderFailure)
 }
@@ -61,7 +59,7 @@ const addOrderHandlers = () => {
 
   // Listen for click event on the 'Create Order' button in the cart
   // use button id or class?
-  $(document).on('click', '.checkoutBtn', onCreateOrder)
+  $(document).on('click', '#checkoutBtn', onCreateOrder)
 
   // **
   // ** TBD *** Need to fix trigger on onCreateOrder click event

@@ -1,8 +1,8 @@
 'use strict'
 const store = require('../store')
 
-const onCreateOrderSuccess = function (ajaxResponse) {
-  console.log('(order/ui.js) onCreateOrderSuccess ran!  Data is :', ajaxResponse)
+const createOrderSuccess = function (ajaxResponse) {
+  console.log('(order/ui.js) createOrderSuccess ran!  Data is :', ajaxResponse)
 
   const order = ajaxResponse
   store.order = order
@@ -16,8 +16,8 @@ const onCreateOrderSuccess = function (ajaxResponse) {
   // TBD - Tell user that order was successful
 }
 
-const onCreateOrderFailure = (error) => {
-  console.log('(order/ui.js) onCreateOrderFailure  Error is :', error)
+const createOrderFailure = (error) => {
+  console.log('(order/ui.js) createOrderFailure  Error is :', error)
   console.error(error)
 
 // to be revised
@@ -28,7 +28,52 @@ const onCreateOrderFailure = (error) => {
   // .catch(ui.failure);
 }
 
+const indexOrdersSuccess = function (ajaxResponse) {
+  console.log('(orders/ui.js) indexOrdersSuccess ran!  Data is :', ajaxResponse)
+
+  // const order = ajaxResponse
+  // store.order = order
+
+  // *** TBD *** - Show user list of all orders using handlebars
+}
+
+const indexOrdersFailure = (error) => {
+  console.log('(orders/ui.js) indexOrdersFailure  Error is :', error)
+  console.error(error)
+}
+
+const updateOrderRatingSuccess = function (ajaxResponse) {
+  console.log('(orders/ui.js) updateOrderRatingSuccess ran!  Data is :', ajaxResponse)
+
+  // const order = ajaxResponse
+  // store.order = order
+
+  // *** TBD *** - Show updated order rating to user
+}
+
+const updateOrderRatingFailure = (error) => {
+  console.log('(orders/ui.js) updateOrderRatingFailure  Error is :', error)
+  console.error(error)
+}
+
+const deleteOrderSuccess = function () {
+  console.log('(orders/ui.js) deleteOrderSuccess ran!')
+
+  // *** TBD *** - Remove order from Display All Orders display
+}
+
+const deleteOrderFailure = (error) => {
+  console.log('(orders/ui.js) deleteOrderFailure  Error is :', error)
+  console.error(error)
+}
+
 module.exports = {
-  onCreateOrderSuccess,
-  onCreateOrderFailure
+  createOrderSuccess,
+  createOrderFailure,
+  indexOrdersSuccess,
+  indexOrdersFailure,
+  updateOrderRatingSuccess,
+  updateOrderRatingFailure,
+  deleteOrderSuccess,
+  deleteOrderFailure
 }

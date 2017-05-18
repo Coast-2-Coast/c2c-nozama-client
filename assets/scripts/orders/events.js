@@ -7,12 +7,9 @@ const cart = require('../cart')
 const onCreateOrder = function (event) {
   event.preventDefault()
   console.log('(order/events.js) onCreateOrder ran!')
-  const data = {
-    order: {
-      items: cart.getItems()
-    }
-  }
-  console.log('(order/events.js) data is ', data)
+
+  // this object will be passed as cart
+  // console.log('(order/events.js) data is ', data)
   // if (orderComplete.getId() === '') {
   orderApi.createOrder(data)
     .then(orderUi.onCreateOrderSuccess)

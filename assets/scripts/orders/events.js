@@ -2,7 +2,6 @@
 
 const orderApi = require('./api')
 const orderUi = require('./ui')
-const cart = require('../cart')
 
 const onCreateOrder = function (event) {
   event.preventDefault()
@@ -11,9 +10,9 @@ const onCreateOrder = function (event) {
   // this object will be passed as cart
   // console.log('(order/events.js) data is ', data)
   // if (orderComplete.getId() === '') {
-  orderApi.createOrder(data)
-    .then(orderUi.onCreateOrderSuccess)
-    .catch(orderUi.onCreateOrderFailure)
+  // orderApi.createOrder(data)
+  //   .then(orderUi.onCreateOrderSuccess)
+  //   .catch(orderUi.onCreateOrderFailure)
   // } else {
   //   orderApi.updateOrder(orderComplete.getId(), data)
   //     .then(orderUi.onUpdateOrderSuccess)

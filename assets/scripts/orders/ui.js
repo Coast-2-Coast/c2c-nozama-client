@@ -1,7 +1,5 @@
 'use strict'
 const store = require('../store')
-const stripe = require('../stripe/events')
-const stripeUi = require('../stripe/ui')
 
 const onCreateOrderSuccess = function (ajaxResponse) {
   console.log('(order/ui.js) onCreateOrderSuccess ran!  Data is :', ajaxResponse)

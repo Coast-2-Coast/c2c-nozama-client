@@ -1,6 +1,7 @@
 // const stripe = require('stripe')
 const orderEvents = require('../orders/events.js')
 const chargeApi = require('../charge/api.js')
+const store = require('../store')
 
 const onPageLoad = function () {
 // StripeCheckout has a linter error but works because we have the stripe
@@ -21,10 +22,18 @@ const onPageLoad = function () {
 
   document.getElementById('checkoutBtn').addEventListener('click', function (e) {
     // Open Checkout with further options:
+    console.log('Inside of checkout btn handler')
+    console.log('store.cart is', store.cart)
+
+    let total = 0
+    for (let i = 0; i < store.cart.products.length; i++) {
+      const price = store.cart.products[i].price
+      total = total + price
+    }
     handler.open({
       name: 'Demo Site',
       description: '2 widgets',
-      amount: 2000
+      amount: total * 100
     })
     e.preventDefault()
   })

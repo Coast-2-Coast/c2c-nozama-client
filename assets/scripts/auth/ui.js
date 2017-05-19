@@ -4,6 +4,7 @@ const store = require('../store')
 
 const productEvents = require('../products/events.js')
 const orderUi = require('../orders/ui.js')
+const menu = require('./menu')
 
 // const errorTextUponSignUpFailure = 'User has already signed up.  Please sign in.'
 // const errorTextUponIncorrectPasswordFailure = 'Password is incorrect.  Please type in correct password.'
@@ -56,6 +57,7 @@ const signInFailure = (error) => {
 
   // Clear modal body text in SIGN IN modal
   $('#sign-in').trigger('reset')
+  menu.signInError()
 }
 
 const changePasswordSuccess = (ajaxResponse) => {

@@ -24,6 +24,8 @@
             <li id="sign-in-modal"><a href="#">Sign-in</a></li>
             <li id="chng-pw-modal"><a href="#">Change-Password</a></li>
             <li id="sign-out-modal"><a href="#">Sign-out</a></li>
+            <li class="divider"></li>
+            <li id="select-view-order-history-btn"><a href="#">View Order History</a></li>
           </ul>
           <li><a href="#"><span id="open-shopping-cart" class="glyphicon glyphicon-shopping-cart"></span></a></li>
         </ul>
@@ -31,9 +33,9 @@
     </nav>
 
     <!-- Button trigger view-order-history modal -->
-    <button type="button" id="select-view-order-history-btn" class="btn btn-primary btn-md" data-target="myViewOrderHistoryModal">
+    <!-- <button type="button" id="select-view-order-history-btn" class="btn btn-primary btn-md" data-target="myViewOrderHistoryModal">
           View Order History
-    </button>
+    </button> -->
 
     <!-- This is the side-drawer user as the 'shopping cart' -->
     <div id="mySidenav" class="sidenav">
@@ -48,7 +50,9 @@
       <script src="https://checkout.stripe.com/checkout.js"></script>
 
       <!-- <button id="checkoutBtn">Checkout</button> -->
-      <button type="button" class="btn btn-primary" id="checkoutBtn">Checkout</button>
+      <div class="checkout-button-wrapper">
+        <button type="button" class="my-checkout-button btn btn-primary" id="checkoutBtn">Checkout</button>
+      </div>
       <script>
 
       </script>

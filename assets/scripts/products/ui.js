@@ -36,6 +36,7 @@ const getOneProductSuccess = function (ajaxResponse) {
   // const displayOneProduct = require('../templates/cart-listing.handlebars')
   // $('#cartHandlebar').prepend(displayOneProduct(product))
   console.log(buildOrder.order())
+  $('#checkoutBtn').show()
 }
 
 const getOneProductFailure = (error) => {

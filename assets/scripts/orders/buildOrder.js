@@ -23,7 +23,7 @@ const order = function () {
     total = total + price
   }
   order.order.total = total
-  order.order.rating = 999
+  // order.order.rating = 0
   order.order._owner = store.user.id
   // console.log('order is', order)
   return order

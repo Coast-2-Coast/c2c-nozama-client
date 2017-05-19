@@ -36,7 +36,7 @@ const signOutSuccess = function () {
 }
 
 const changePasswordSuccess = function () {
-
+  $('#myPwChangeModal').modal('toggle')
 }
 
 const changePasswordError = function () {

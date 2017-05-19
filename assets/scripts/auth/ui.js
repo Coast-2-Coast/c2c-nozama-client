@@ -28,6 +28,10 @@ const signUpFailure = (error) => {
 
 const signInSuccess = (ajaxResponse) => {
   store.cart = { products: [] }
+  $('#chng-pw-modal').show()
+  $('#sign-out-modal').show()
+  $('#sign-up-modal').hide()
+  $('#sign-in-modal').hide()
   console.log('(auth/ui.js) signInSuccess ran!  Data is :', ajaxResponse)
   $('#mySignInModal').modal('toggle')
   // Store user object
@@ -65,6 +69,7 @@ const changePasswordSuccess = (ajaxResponse) => {
 
   // Clear modal body text in CHANGE PASSWORD modal
   $('#change-password').trigger('reset')
+  menu.changePasswordSuccess()
 }
 
 const changePasswordFailure = (error) => {
@@ -77,9 +82,14 @@ const changePasswordFailure = (error) => {
 
   // Clear modal body text in CHANGE PASSWORD modal
   $('#change-password').trigger('reset')
+  menu.changePasswordError()
 }
 
 const signOutSuccess = () => {
+  $('#sign-up-modal').show()
+  $('#sign-in-modal').show()
+  $('#chng-pw-modal').hide()
+  $('#sign-out-modal').hide()
   console.log('(auth/ui.js) signOutSuccess ran!  Nothing was returned')
   // clear cart
   store.cart = null

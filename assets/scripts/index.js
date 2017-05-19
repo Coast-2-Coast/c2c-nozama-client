@@ -34,6 +34,11 @@ $(() => {
 
   $('#chng-pw-modal').on('click', function () { $('#tempChangePasswordError').html('') })
   $('#chng-pw-modal').on('click', function () { $('#change-password').find('input:text, input:password, select, textarea').val('') })
+
+  $('#chng-pw-modal').hide()
+  $('#sign-out-modal').hide()
+  $('#sign-up-modal').show()
+  $('#sign-in-modal').show()
 })
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')

@@ -19,6 +19,7 @@ const onSignUp = function (event) {
       .then(ui.signUpSuccess)
       .catch(ui.signUpFailure)
   } else {
+    $('#tempSignUpError').html("Passwords don't match, or email already taken")
     // // User did not enter the same passwords.  Ask user to re-enter passwords.
     // const errorTextUponPasswordMismatchFailure = 'Passwords do not match.  Please verify passwords match.'
     //

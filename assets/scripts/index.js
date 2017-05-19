@@ -6,6 +6,7 @@ const productEvents = require('./products/events.js')
 const orderEvents = require('./orders/events.js')
 const appEvents = require('./app/events.js')
 const authEvents = require('./auth/events.js')
+const stripeEvents = require('./stripe/stripe.js')
 
 const orderUi = require('./orders/ui.js')
 
@@ -18,6 +19,7 @@ $(() => {
   orderEvents.addOrderHandlers()
   appEvents.addHandlers()
   authEvents.addHandlers()
+  stripeEvents.onPageLoad()
 
   // Hide View Order History modal button until user signs in
   orderUi.hideViewOrderHistoryBtn()

@@ -35,10 +35,11 @@ const createOrder = () => {
 
 const indexOrders = () => {
   console.log('orders/api.js (indexOrders)')
-
+  console.log('user id is: ', store.user.id)
+  console.log('user token is: ', store.user.token)
   // store.user is stored in scripts/auth/ui.js -> signInSuccess
   return $.ajax({
-    url: config.apiOrigin + '/orders/',
+    url: config.apiOrigin + '/userorders/' + store.user.id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token

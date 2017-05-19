@@ -8,6 +8,9 @@ const appEvents = require('./app/events.js')
 const authEvents = require('./auth/events.js')
 const stripeEvents = require('./stripe/stripe.js')
 
+const orderUi = require('./orders/ui.js')
+
+
 $(() => {
   setAPIOrigin(location, config)
   // Upon page load, hides all views except views passed in array to showView
@@ -18,6 +21,11 @@ $(() => {
   appEvents.addHandlers()
   authEvents.addHandlers()
   stripeEvents.onPageLoad()
+
+
+  // Hide View Order History modal button until user signs in
+  orderUi.hideViewOrderHistoryBtn()
+
 })
 
 // use require with a reference to bundle the file and use it in this file

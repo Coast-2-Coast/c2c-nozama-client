@@ -24,32 +24,33 @@ const onIndexOrders = function (event) {
   event.preventDefault()
   console.log('orders/events.js (onIndexOrders) ran!')
 
+  $('#myViewOrderHistoryModal').modal('toggle')
+
   // Don't need to use data object here!
   orderApi.indexOrders()
     .then(orderUi.indexOrdersSuccess)
     .catch(orderUi.indexOrdersFailure)
 }
 
-const onUpdateOrderRating = function (event, id) {
+const onUpdateOrderRating = function (event) {
   event.preventDefault()
   console.log('player/events.js (onUpdateOrder)')
-  console.log('player/events.js (onUpdateOrder) - ID is: ', id)
 
-  // Get updated order rating from getFormFields user input form
-  const rating = getFormFields(event.target)
-  console.log('player/events.js (onUpdateOrder) - Rating is: ', rating)
+  const orderId = $(this).data('id')
 
-  orderApi.updateOrderRating(id, rating)
-    .then(orderUi.updateOrderRatingSuccess)
-    .catch(orderUi.updateOrderRatingFailure)
+  const rating = document.getElementById('rating').value
+
+  console.log('player/events.js (onUpdateOrderRating) - ID is: ', orderId)
+  console.log('player/events.js (onUpdateOrderRating) - Rating is: ', rating)
 }
 
-const onDeleteOrder = function (data) {
+const onDeleteOrder = function (event) {
   event.preventDefault()
-  console.log('player/events.js (onDeleteOrder) - (data is ', data)
+  console.log('player/events.js (onDeleteOrder)')
 
-  orderApi.deleteOrder(data)
-    .then(orderUi.deleteOrderSuccess)
+  const orderId = $(this).data('id')
+  orderApi.deleteOrder(orderId)
+    .then(orderUi.deleteOrderSuccess(orderId))
     .catch(orderUi.deleteOrderFailure)
 }
 
@@ -70,19 +71,16 @@ const addOrderHandlers = () => {
   // **
   // ** TBD *** Need to fix trigger to onIndexOrders click event
   // **
-  $('#view-orders-btn').on('click', onIndexOrders)
 
-  // Set up submit event handler to View Order History
-  // **
-  // ** TBD *** Need to fix trigger to onUpdateOrderRating FORM submit event
-  // **
-  $('#update-order-rating-form').on('submit', onUpdateOrderRating)
+  console.log('orders/events.js (Setting click handler for onIndexOrders)')
 
-  // Set up click event handler to View Order History
-  // **
-  // ** TBD *** Need to fix trigger to onDeleteOrder click event
-  // **
-  $('#delete-order-btn').on('click', onDeleteOrder)
+  $('#select-view-order-history-btn').on('click', onIndexOrders)
+
+  // Set up click event handler to Set New Rating in View Order History
+  $(document).on('click', '.setOrderRatingBtn', onUpdateOrderRating)
+
+  // Set up click event handler to Delete Order in View Order History
+  $(document).on('click', '.removeFromOrderHistoryBtn', onDeleteOrder)
 }
 
 module.exports = {

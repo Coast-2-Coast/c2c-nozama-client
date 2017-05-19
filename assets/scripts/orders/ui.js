@@ -1,40 +1,43 @@
 'use strict'
 const store = require('../store')
 
+const errorTextNoCurrentOrders = 'You have no current orders.  Please submit an order!'
+
 const createOrderSuccess = function (ajaxResponse) {
-  console.log('(order/ui.js) createOrderSuccess ran!  Data is :', ajaxResponse)
+  console.log('(orders/ui.js) createOrderSuccess ran!  Data is :', ajaxResponse)
 
   const order = ajaxResponse
   store.order = order
-
-// to be revised
-
-  // stripe.onCreateCharge(store.order)
-  //   .then(stripeUi.onCreateChargeSuccess)
-  //   .catch(stripeUi.onCreateChargeFailure)
 
   // TBD - Tell user that order was successful
 }
 
 const createOrderFailure = (error) => {
-  console.log('(order/ui.js) createOrderFailure  Error is :', error)
+  console.log('(orders/ui.js) createOrderFailure  Error is :', error)
   console.error(error)
-
-// to be revised
-  // .then((data) => {
-  //   onShowOrder();
-  //   stripe.onCreateCharge(event, data.order);
-  // })
-  // .catch(ui.failure);
 }
 
 const indexOrdersSuccess = function (ajaxResponse) {
   console.log('(orders/ui.js) indexOrdersSuccess ran!  Data is :', ajaxResponse)
 
-  // const order = ajaxResponse
-  // store.order = order
+  const orders = ajaxResponse
+  store.orders = orders
 
-  // *** TBD *** - Show user list of all orders using handlebars
+  console.log('(orders/ui.js) indexOrdersSuccess - Number of orders:', orders.orders.length)
+
+  if (orders.orders.length === 0) {
+    console.log('(orders/ui.js) No current orders for current user!')
+    // No orders yet for current user - Display to user that there are no current
+    //  orders.
+    $('#view-order-history-footer').html(errorTextNoCurrentOrders)
+  } else {
+    console.log('(orders/ui.js) Number of current orders for current user is: ', orders.orders.length)
+
+    // Build handlebars HTML showing a display of all orders for current user
+    $('#display-orders').html('')
+    const displayAllOrders = require('../templates/display-view-order-history.handlebars')
+    $('#display-orders').prepend(displayAllOrders(orders))
+  }
 }
 
 const indexOrdersFailure = (error) => {
@@ -56,8 +59,12 @@ const updateOrderRatingFailure = (error) => {
   console.error(error)
 }
 
-const deleteOrderSuccess = function () {
-  console.log('(orders/ui.js) deleteOrderSuccess ran!')
+const deleteOrderSuccess = function (id) {
+  event.preventDefault()
+
+  // Remove deleted order from rendering in view order history
+  $("div[data-id='" + id + "']").remove()
+  console.log('(orders/ui.js) deleteOrderSuccess ran! - ID: ', id)
 
   // *** TBD *** - Remove order from Display All Orders display
 }
@@ -65,6 +72,20 @@ const deleteOrderSuccess = function () {
 const deleteOrderFailure = (error) => {
   console.log('(orders/ui.js) deleteOrderFailure  Error is :', error)
   console.error(error)
+}
+
+const showViewOrderHistoryBtn = function () {
+  console.log('(orders/ui.js) showViewOrderHistoryBtn ran!')
+
+  // Show View Order History modal button after user signs in.
+  $('#select-view-order-history-btn').show()
+}
+
+const hideViewOrderHistoryBtn = function () {
+  console.log('(orders/ui.js) hideViewOrderHistoryBtn ran!')
+
+  // Hide View Order History modal button initially until user signs in.
+  $('#select-view-order-history-btn').hide()
 }
 
 module.exports = {
@@ -75,5 +96,7 @@ module.exports = {
   updateOrderRatingSuccess,
   updateOrderRatingFailure,
   deleteOrderSuccess,
-  deleteOrderFailure
+  deleteOrderFailure,
+  showViewOrderHistoryBtn,
+  hideViewOrderHistoryBtn
 }

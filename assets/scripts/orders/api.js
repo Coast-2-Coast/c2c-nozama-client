@@ -61,12 +61,12 @@ const updateOrder = (id, data) => {
   })
 }
 
-const deleteOrder = () => {
-  console.log('orders/api.js (deleteOrder')
+const deleteOrder = (id) => {
+  console.log('orders/api.js (deleteOrder - ID: ', id)
 
   // store.user is stored in scripts/auth/ui.js -> signInSuccess
   return $.ajax({
-    url: config.apiOrigin + '/orders/',
+    url: config.apiOrigin + '/orders/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token

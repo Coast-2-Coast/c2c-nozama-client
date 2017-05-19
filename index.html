@@ -30,6 +30,11 @@
       </div>
     </nav>
 
+    <!-- Button trigger view-order-history modal -->
+    <button type="button" id="select-view-order-history-btn" class="btn btn-primary btn-md" data-target="myViewOrderHistoryModal">
+          View Order History
+    </button>
+
     <!-- This is the side-drawer user as the 'shopping cart' -->
     <div id="mySidenav" class="sidenav">
       <div class="cart-header-wrapper">
@@ -40,17 +45,35 @@
       <div id="cartHandlebar"></div>
 
       <!-- stripe payment form -->
-      <div id="stripePmtForm">
-        <button type="button" id="checkoutBtn" class="btn btn-primary">Checkout</button>
-        <script
-          src="https://checkout.stripe.com/checkout.js"
-          data-key="pk_test_1uSrps2fqlCACMqKQyrfBwbr"
-          data-amount="2000"
-          data-name="Nozama"
-          data-description="Enter payment information"
-          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-          data-locale="auto">
-        </script>
+      <script src="https://checkout.stripe.com/checkout.js"></script>
+
+      <!-- <button id="checkoutBtn">Checkout</button> -->
+      <button type="button" class="btn btn-primary" id="checkoutBtn">Checkout</button>
+      <script>
+
+      </script>
+
+
+
+
+
+
+
+
+
+      <!-- <div id="stripePmtForm">
+        <form id="stripeCheckout" onSubmit="">
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_1uSrps2fqlCACMqKQyrfBwbr"
+            data-amount="2000"
+            data-name="Nozama"
+            data-description="Enter payment information"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto">
+          </script>
+      </form>
+      </div> -->
       </div>
       </div>
     </div>
@@ -59,9 +82,6 @@
       <!-- buildout views here -->
       <!-- handlebars to display all products-->
       <div id="products" class="productView"></div>
-
-
-
 
       <!-- START Sign-up-modal -->
       <div class="modal fade" id="mySignUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -143,10 +163,27 @@
             </div>
             <!-- END Change-password-modal -->
 
-
+            <!-- START View Order History modal -->
+            <div class="modal fade" id="myViewOrderHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">View Order History</h4>
+                        </div>
+                        <div class="modal-body">
+                          <!-- handlebars to display all products-->
+                          <div id="display-orders" class="displayAllOrdersView"></div>
+                        </div>
+                        <div class="modal-footer" id="view-order-history-footer">
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <!-- END View Order History-modal -->
 
     </div>
-
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <!--we shouldn't need the below scripts.  Browser template takes care of loading jQuery, boostrap js, etc.-->
     <!-- Bootstrap core JavaScript
     ================================================== -->

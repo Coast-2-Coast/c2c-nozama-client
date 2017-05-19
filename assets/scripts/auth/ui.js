@@ -3,6 +3,7 @@
 const store = require('../store')
 
 const productEvents = require('../products/events.js')
+const orderUi = require('../orders/ui.js')
 
 // const errorTextUponSignUpFailure = 'User has already signed up.  Please sign in.'
 // const errorTextUponIncorrectPasswordFailure = 'Password is incorrect.  Please type in correct password.'
@@ -38,6 +39,9 @@ const signInSuccess = (ajaxResponse) => {
 
   // Clear modal body text in SIGN IN modal
   $('#sign-in').trigger('reset')
+
+  // Show View Order History modal button since user signed in
+  orderUi.showViewOrderHistoryBtn()
 }
 
 const signInFailure = (error) => {
@@ -83,6 +87,9 @@ const signOutSuccess = () => {
   // On sign out, show all products without the `Add to Cart` button for each
   //  product.
   productEvents.onGetAllProducts()
+
+  // On sign out, hide View Order History modal button
+  orderUi.hideViewOrderHistoryBtn()
 }
 
 const signOutFailure = (error) => {

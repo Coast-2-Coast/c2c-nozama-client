@@ -13,6 +13,8 @@ const signUpSuccess = (ajaxResponse) => {
 
   // Clear modal body text in SIGN UP modal
   $('#sign-up').trigger('reset')
+  $('#mySignUpModal').modal('toggle')
+  $('#mySignInModal').modal('toggle')
 }
 
 const signUpFailure = (error) => {
@@ -26,7 +28,7 @@ const signUpFailure = (error) => {
 const signInSuccess = (ajaxResponse) => {
   store.cart = { products: [] }
   console.log('(auth/ui.js) signInSuccess ran!  Data is :', ajaxResponse)
-
+  $('#mySignInModal').modal('toggle')
   // Store user object
   store.user = ajaxResponse.user
   console.log('ui.js: signInSuccess - store is: ', store)
@@ -77,9 +79,10 @@ const changePasswordFailure = (error) => {
 
 const signOutSuccess = () => {
   console.log('(auth/ui.js) signOutSuccess ran!  Nothing was returned')
-
-  // OREO COOKIE!
-  console.log('store is: ', store)
+  // clear cart
+  store.cart = null
+  // re-render cart
+  $('#cartHandlebar').html(' ')
   // Clear user
   store.user = null
   console.log('store is: ', store)

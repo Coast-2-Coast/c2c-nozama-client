@@ -6,9 +6,11 @@ const errorTextNoCurrentOrders = 'You have no current orders.  Please submit an 
 const createOrderSuccess = function () {
   console.log('(orders/ui.js) createOrderSuccess ran!')
   // clear cart
-  store.cart = null
+  store.cart = { products: [] }
+  // store.cart = { products: [] }
   // re-render cart
   $('#cartHandlebar').html(' ')
+  $('#checkoutBtn').hide()
 }
 
 const createOrderFailure = (error) => {

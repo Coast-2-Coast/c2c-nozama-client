@@ -3,13 +3,12 @@ const store = require('../store')
 
 const errorTextNoCurrentOrders = 'You have no current orders.  Please submit an order!'
 
-const createOrderSuccess = function (ajaxResponse) {
-  console.log('(orders/ui.js) createOrderSuccess ran!  Data is :', ajaxResponse)
-
-  const order = ajaxResponse
-  store.order = order
-
-  // TBD - Tell user that order was successful
+const createOrderSuccess = function () {
+  console.log('(orders/ui.js) createOrderSuccess ran!')
+  // clear cart
+  store.cart = null
+  // re-render cart
+  $('#cartHandlebar').html(' ')
 }
 
 const createOrderFailure = (error) => {

@@ -86,6 +86,7 @@ const changePasswordFailure = (error) => {
 }
 
 const signOutSuccess = () => {
+  $('#checkoutBtn').hide()
   $('#sign-up-modal').show()
   $('#sign-in-modal').show()
   $('#chng-pw-modal').hide()

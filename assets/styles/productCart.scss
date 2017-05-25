@@ -1,5 +1,17 @@
+.remove-from-cart {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+.remove-from-cart:hover {
+  color: red;
+}
+
 .checkout-button-wrapper {
-  width: 300px;
+  width: 350px;
   display: block;
 }
 
@@ -7,14 +19,15 @@
   margin: 0 auto;
   text-align: center;
   position: relative;
-  left: 110px;
+  left: 135px;
   bottom: 0;
 }
 
 .cartProductWrapper {
+  position: relative;
+  display:inline-block;
   height: 100px;
-  width: 300px;
-  float: left;
+  width: 350px;
 }
 
 .productCartImage{
@@ -33,7 +46,7 @@
   float: left;
   font-size: 20px;
   height: 50px;
-  width: 200px;
+  width: 250px;
   color: $white;
   margin: 0;
 }
@@ -42,12 +55,12 @@
   float: left;
   font-size: 20px;
   height: 50px;
-  width: 200px;
+  width: 250px;
   color: $white;
   margin: 0;
 }
 
 .removeBtn {
   text-align: center;
-  width: 200px;
+  width: 250px;
 }

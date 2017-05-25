@@ -12,7 +12,7 @@
     <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
   </head>
   <body>
-    <nav class="my-navbar navbar">
+    <nav class="my-navbar navbar navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <div class="my-company-name" href="#">Nozama</div>
@@ -30,6 +30,7 @@
           <li><a href="#"><span id="open-shopping-cart" class="glyphicon glyphicon-shopping-cart"></span></a></li>
         </ul>
       </div>
+      <div id="alert-id" class="alert alert-success alert-styling">Item added to cart</div>
     </nav>
 
     <!-- Button trigger view-order-history modal -->
@@ -83,6 +84,12 @@
     </div>
 
     <div class="container-fluid">
+
+      <!-- placeholder for alert to user, i.e. when
+      adding an item to the cart -->
+      <!-- <div id="alert-id" class="alert alert-success alert-styling">Item added to cart</div> -->
+
+
       <!-- buildout views here -->
       <!-- handlebars to display all products-->
       <div id="products" class="productView"></div>

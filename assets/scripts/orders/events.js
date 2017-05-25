@@ -39,10 +39,14 @@ const onUpdateOrderRating = function (event) {
 
   const orderId = $(this).data('id')
 
-  const rating = document.getElementById('rating').value
+  const rating = $('#rating' + orderId).val()
 
   console.log('player/events.js (onUpdateOrderRating) - ID is: ', orderId)
   console.log('player/events.js (onUpdateOrderRating) - Rating is: ', rating)
+
+  orderApi.updateOrder(orderId, rating)
+  .then(orderUi.updateOrderRatingSuccess)
+  .catch(orderUi.updateOrderRatingFailure)
 }
 
 const onDeleteOrder = function (event) {

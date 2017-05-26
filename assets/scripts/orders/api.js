@@ -53,7 +53,7 @@ const updateOrder = (id, data) => {
 
   const order = {
     order: {
-      rating: 5
+      rating: data
     }}
 
   // const order = {
@@ -81,7 +81,7 @@ const updateOrder = (id, data) => {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    order
+    data: order
   })
 }
 

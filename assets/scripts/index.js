@@ -40,6 +40,8 @@ $(() => {
   $('#sign-up-modal').show()
   $('#sign-in-modal').show()
   $('#checkoutBtn').hide()
+
+  $('#alert-id').hide()
 })
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')

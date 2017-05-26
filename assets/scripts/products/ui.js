@@ -1,4 +1,5 @@
 'use strict'
+const helpers = require('./helpers')
 const store = require('../store')
 // temporarily calling buildOrder from this file to
 // see console logs.
@@ -27,16 +28,27 @@ const getOneProductSuccess = function (ajaxResponse) {
   // back a product object, we we add to the store.cart array
   // start.cart is initialized as an empty array up on sign in success
   store.cart.products.unshift(ajaxResponse.product)
-  const products = store.cart
-  // console.log(products)
+  let products = store.cart
+  console.log(products)
 
   $('#cartHandlebar').html('')
   const displayAllProducts = require('../templates/product-cart-listing.handlebars')
   $('#cartHandlebar').prepend(displayAllProducts(products))
   // const displayOneProduct = require('../templates/cart-listing.handlebars')
   // $('#cartHandlebar').prepend(displayOneProduct(product))
+
+  // attaching handler to remove item from store and re-render
+  helpers.removeFromCart()
+
+  // now need to remove that div from cart
+
+  // store.cart.products.splice(index, 1)
+
   console.log(buildOrder.order())
   $('#checkoutBtn').show()
+
+  helpers.showAlert($('#alert-id'))
+  $('#mySidenav').width('350px')
 }
 
 const getOneProductFailure = (error) => {

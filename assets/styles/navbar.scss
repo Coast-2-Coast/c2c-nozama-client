@@ -5,6 +5,8 @@ nav.my-navbar.navbar {
   padding-right: 8px;
   padding-left: 8px;
   margin: 0;
+  position: fixed;
+  z-index: 1;
 }
 
 // Styling for how Nozama name is displayed

@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store')
+const orderApi = require('./api')
 
 const errorTextNoCurrentOrders = 'You have no current orders.  Please submit an order!'
 
@@ -26,6 +27,8 @@ const indexOrdersSuccess = function (ajaxResponse) {
 
   console.log('(orders/ui.js) indexOrdersSuccess - Number of orders:', orders.orders.length)
 
+  $('#display-orders').html('')
+
   if (orders.orders.length === 0) {
     console.log('(orders/ui.js) No current orders for current user!')
     // No orders yet for current user - Display to user that there are no current
@@ -35,7 +38,6 @@ const indexOrdersSuccess = function (ajaxResponse) {
     console.log('(orders/ui.js) Number of current orders for current user is: ', orders.orders.length)
 
     // Build handlebars HTML showing a display of all orders for current user
-    $('#display-orders').html('')
     const displayAllOrders = require('../templates/display-view-order-history.handlebars')
     $('#display-orders').prepend(displayAllOrders(orders))
   }
@@ -49,10 +51,10 @@ const indexOrdersFailure = (error) => {
 const updateOrderRatingSuccess = function (ajaxResponse) {
   console.log('(orders/ui.js) updateOrderRatingSuccess ran!  Data is :', ajaxResponse)
 
-  // const order = ajaxResponse
-  // store.order = order
-
-  // *** TBD *** - Show updated order rating to user
+  // Show updated order rating to user
+  orderApi.indexOrders()
+    .then(indexOrdersSuccess)
+    .catch(indexOrdersFailure)
 }
 
 const updateOrderRatingFailure = (error) => {

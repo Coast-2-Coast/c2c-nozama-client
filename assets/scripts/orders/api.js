@@ -51,6 +51,29 @@ const updateOrder = (id, data) => {
   console.log('orders/api.js (updateOrder) - ID is: ', id)
   console.log('orders/api.js (updateOrder) - Data is: ', data)
 
+  const order = {
+    order: {
+      rating: data
+    }}
+
+  // const order = {
+  //   orderDate: '2017-08-09',
+  //   rating: 5,
+  //   items: [
+  //     {name: 'apple', price: 100, qty: 2}, {name: 'orange', price: 200, qty: 1},
+  //     {name: 'banana', price: 300, qty: 1}
+  //   ],
+  //   total: 600,
+  //   _owner: '591e34670cbe10e1f3e1e6eb'
+  // }
+
+  // order.order.rating = data
+
+  // const data1 = order
+
+  console.log('orders/api.js (updateOrder) - Order is: ', order)
+  console.log('orders/api.js (updateOrder) - User token is: ', store.user.token)
+
   // store.user is stored in scripts/auth/ui.js -> signInSuccess
   return $.ajax({
     url: config.apiOrigin + '/orders/' + id,
@@ -58,7 +81,7 @@ const updateOrder = (id, data) => {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    data: order
   })
 }
 

@@ -1,5 +1,5 @@
 const openCart = function (event) {
-  $('#mySidenav').width('300px')
+  $('#mySidenav').width('350px')
 }
 
 const closeCart = function (event) {
